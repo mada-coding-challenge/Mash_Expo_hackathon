@@ -1,0 +1,77 @@
+{% extends "planner/base.html" %}
+
+{% block title %}التحقق من الموقع | mashi{% endblock %}
+
+{% block content %}
+
+<header class="topbar">
+    <a href="{% url 'challenge_detail' visit.challenge.id %}" class="icon-btn" aria-label="رجوع">
+        <svg class="ic"><use href="#i-arrow"/></svg>
+    </a>
+    <span class="topbar-title">التحقق من الموقع</span>
+</header>
+
+<section class="card status-hero" style="padding:26px 18px">
+
+{% if error %}
+
+    <div class="status-icon bad">!</div>
+    <span class="badge">تعذر التحقق</span>
+    <h1 style="margin-top:8px">لم نتمكن من تحديد موقعك</h1>
+    <p>{{ error }}</p>
+
+    <div class="note" style="margin-top:16px;text-align:start">
+        <svg class="ic"><use href="#i-info"/></svg>
+        <div>تأكد من السماح للمتصفح باستخدام موقع جهازك، ثم حاول مرة أخرى.</div>
+    </div>
+
+    <a href="{% url 'challenge_detail' visit.challenge.id %}" class="btn" style="margin-top:16px">العودة إلى Discover &amp; Earn</a>
+
+{% elif is_near %}
+
+    <div class="status-icon"><svg class="ic"><use href="#i-check"/></svg></div>
+    <span class="badge green">تم التحقق من الموقع</span>
+    <h1 style="margin-top:8px">وصلت إلى وجهتك</h1>
+    <p>أنت الآن بالقرب من</p>
+    <h2>{{ visit.pavilion.name }}</h2>
+
+    <div style="margin-top:14px;text-align:start">
+        <div class="kv"><span>المسافة التقريبية</span><strong>{{ distance }} متر</strong></div>
+    </div>
+
+    <div class="note" style="margin-top:12px;text-align:start">
+        <svg class="ic"><use href="#i-clock"/></svg>
+        <div><strong>بدأ احتساب زيارتك.</strong> أكمل المدة المطلوبة ليُحتسب هذا الجناح ضمن التحدي.</div>
+    </div>
+
+    <a href="{% url 'challenge_detail' visit.challenge.id %}" class="btn" style="margin-top:16px">متابعة التحدي</a>
+
+{% else %}
+
+    <div class="status-icon warn"><svg class="ic"><use href="#i-pin"/></svg></div>
+    <span class="badge">لم تصل بعد</span>
+    <h1 style="margin-top:8px">أنت بعيد عن الجناح</h1>
+    <p>اقترب من</p>
+    <h2>{{ visit.pavilion.name }}</h2>
+
+    <div style="margin-top:14px;text-align:start">
+        <div class="kv"><span>المسافة الحالية</span><strong>{{ distance }} متر</strong></div>
+    </div>
+
+    <div class="note" style="margin-top:12px;text-align:start">
+        <svg class="ic"><use href="#i-info"/></svg>
+        <div>عندما تصبح داخل نطاق الجناح أعد التحقق من موقعك، وعندها يبدأ احتساب مدة زيارتك.</div>
+    </div>
+
+    <a href="{% url 'challenge_detail' visit.challenge.id %}" class="btn" style="margin-top:16px">العودة والمحاولة مرة أخرى</a>
+
+{% endif %}
+
+</section>
+
+<p class="mvp-note">
+    <svg class="ic" style="width:18px;height:18px"><use href="#i-info"/></svg>
+    التحقق بالموقع يعمل فعليًا بموقع الجهاز، أما مواقع الأجنحة فمحاكاة، لذلك يتوفر خيار «محاكاة الوصول» أثناء الديمو.
+</p>
+
+{% endblock %}

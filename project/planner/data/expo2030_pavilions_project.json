@@ -1,0 +1,1536 @@
+{
+  "meta": {
+    "event": "Expo 2030 Riyadh",
+    "note_ar": "بيانات افتراضية للمحاكاة ومخصصة لمشروع دليل زوار إكسبو 2030؛ الأجنحة والإحداثيات ومستويات الازدحام ليست بيانات رسمية.",
+    "generated_at": "2026-10-11T20:06:11",
+    "simulated_hour": 20,
+    "center": {
+      "lat": 24.93,
+      "lng": 46.73
+    },
+    "crowd_levels": {
+      "low": "<35%",
+      "moderate": "35-60%",
+      "high": "60-85%",
+      "very_high": ">=85%"
+    },
+    "walking_speed_m_per_min": 80,
+    "project_interests": [
+      "التقنية",
+      "الذكاء الاصطناعي",
+      "الابتكار",
+      "الفضاء",
+      "الاستدامة",
+      "الطاقة",
+      "البيئة",
+      "الثقافة",
+      "التاريخ والتراث",
+      "الفنون",
+      "الصحة",
+      "الترفيه",
+      "الألعاب",
+      "الطعام",
+      "التسوق"
+    ]
+  },
+  "pavilions": [
+    {
+      "id": "P01",
+      "name_ar": "جناح المملكة العربية السعودية",
+      "name_en": "Saudi Arabia Pavilion",
+      "category": "وطني",
+      "zone": "central",
+      "location": {
+        "lat": 24.93,
+        "lng": 46.73
+      },
+      "capacity": 1500,
+      "current_visitors": 596,
+      "crowd_ratio": 0.4,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 18,
+      "experience_minutes": 25,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "التقنية",
+        "الابتكار",
+        "الاستدامة"
+      ],
+      "description": "تجربة وطنية تستعرض أبرز المبادرات والثقافة والابتكار والتطور المستقبلي.",
+      "highlights": [
+        "الثقافة",
+        "التقنية",
+        "الابتكار",
+        "الاستدامة"
+      ],
+      "recommended_duration": 25,
+      "latitude": 24.93,
+      "longitude": 46.73,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P02",
+      "name_ar": "جناح رؤية 2030",
+      "name_en": "Vision 2030 Pavilion",
+      "category": "وطني",
+      "zone": "central",
+      "location": {
+        "lat": 24.930539,
+        "lng": 46.728514
+      },
+      "capacity": 900,
+      "current_visitors": 189,
+      "crowd_ratio": 0.21,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 6,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الابتكار",
+        "التقنية",
+        "الاستدامة"
+      ],
+      "description": "تجربة وطنية تستعرض أبرز المبادرات والثقافة والابتكار والتطور المستقبلي.",
+      "highlights": [
+        "الابتكار",
+        "التقنية",
+        "الاستدامة"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.930539,
+      "longitude": 46.728514,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P03",
+      "name_ar": "جناح أرامكو للطاقة",
+      "name_en": "Aramco Energy Pavilion",
+      "category": "طاقة",
+      "zone": "central",
+      "location": {
+        "lat": 24.930629,
+        "lng": 46.731585
+      },
+      "capacity": 800,
+      "current_visitors": 148,
+      "crowd_ratio": 0.18,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 4,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الطاقة",
+        "التقنية",
+        "الاستدامة"
+      ],
+      "description": "تجربة تستعرض الطاقة والتقنيات والحلول المرتبطة بمستقبل الطاقة.",
+      "highlights": [
+        "الطاقة",
+        "التقنية",
+        "الاستدامة"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.930629,
+      "longitude": 46.731585,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P04",
+      "name_ar": "جناح الذكاء الاصطناعي (سدايا)",
+      "name_en": "SDAIA AI Pavilion",
+      "category": "تقنية",
+      "zone": "central",
+      "location": {
+        "lat": 24.928832,
+        "lng": 46.729208
+      },
+      "capacity": 700,
+      "current_visitors": 317,
+      "crowd_ratio": 0.45,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 13,
+      "experience_minutes": 25,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الذكاء الاصطناعي",
+        "التقنية",
+        "الابتكار"
+      ],
+      "description": "تجربة تفاعلية تستعرض التقنيات الحديثة والابتكار والحلول المستقبلية.",
+      "highlights": [
+        "الذكاء الاصطناعي",
+        "التقنية",
+        "الابتكار"
+      ],
+      "recommended_duration": 25,
+      "latitude": 24.928832,
+      "longitude": 46.729208,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P05",
+      "name_ar": "جناح الفضاء",
+      "name_en": "Space Pavilion",
+      "category": "تقنية",
+      "zone": "central",
+      "location": {
+        "lat": 24.928742,
+        "lng": 46.731189
+      },
+      "capacity": 600,
+      "current_visitors": 320,
+      "crowd_ratio": 0.53,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 12,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الفضاء",
+        "التقنية",
+        "الابتكار"
+      ],
+      "description": "تجربة تفاعلية تستعرض التقنيات الحديثة والابتكار والحلول المستقبلية.",
+      "highlights": [
+        "الفضاء",
+        "التقنية",
+        "الابتكار"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.928742,
+      "longitude": 46.731189,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P06",
+      "name_ar": "جناح الإمارات العربية المتحدة",
+      "name_en": "UAE Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.931797,
+        "lng": 46.725839
+      },
+      "capacity": 900,
+      "current_visitors": 284,
+      "crowd_ratio": 0.32,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 13,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "التقنية",
+        "الابتكار"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "التقنية",
+        "الابتكار"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.931797,
+      "longitude": 46.725839,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P07",
+      "name_ar": "جناح قطر",
+      "name_en": "Qatar Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.932336,
+        "lng": 46.726632
+      },
+      "capacity": 700,
+      "current_visitors": 275,
+      "crowd_ratio": 0.39,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 13,
+      "experience_minutes": 15,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "الابتكار"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "الابتكار"
+      ],
+      "recommended_duration": 15,
+      "latitude": 24.932336,
+      "longitude": 46.726632,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P08",
+      "name_ar": "جناح الكويت",
+      "name_en": "Kuwait Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.932875,
+        "lng": 46.727424
+      },
+      "capacity": 600,
+      "current_visitors": 104,
+      "crowd_ratio": 0.17,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 4,
+      "experience_minutes": 15,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "التاريخ والتراث"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "التاريخ والتراث"
+      ],
+      "recommended_duration": 15,
+      "latitude": 24.932875,
+      "longitude": 46.727424,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P09",
+      "name_ar": "جناح مصر",
+      "name_en": "Egypt Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.932695,
+        "lng": 46.725047
+      },
+      "capacity": 800,
+      "current_visitors": 126,
+      "crowd_ratio": 0.16,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 4,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "التاريخ والتراث",
+        "الفنون"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "التاريخ والتراث",
+        "الفنون"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.932695,
+      "longitude": 46.725047,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P10",
+      "name_ar": "جناح الأردن",
+      "name_en": "Jordan Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.933414,
+        "lng": 46.725839
+      },
+      "capacity": 500,
+      "current_visitors": 199,
+      "crowd_ratio": 0.4,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 10,
+      "experience_minutes": 15,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "التاريخ والتراث"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "التاريخ والتراث"
+      ],
+      "recommended_duration": 15,
+      "latitude": 24.933414,
+      "longitude": 46.725839,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P11",
+      "name_ar": "جناح تركيا",
+      "name_en": "Türkiye Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.933863,
+        "lng": 46.726632
+      },
+      "capacity": 700,
+      "current_visitors": 319,
+      "crowd_ratio": 0.46,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 15,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "التاريخ والتراث",
+        "الفنون"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "التاريخ والتراث",
+        "الفنون"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.933863,
+      "longitude": 46.726632,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P12",
+      "name_ar": "جناح فرنسا",
+      "name_en": "France Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.934312,
+        "lng": 46.727523
+      },
+      "capacity": 800,
+      "current_visitors": 89,
+      "crowd_ratio": 0.11,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 3,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "الفنون",
+        "الابتكار"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "الفنون",
+        "الابتكار"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.934312,
+      "longitude": 46.727523,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P13",
+      "name_ar": "جناح إيطاليا",
+      "name_en": "Italy Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.933863,
+        "lng": 46.728316
+      },
+      "capacity": 800,
+      "current_visitors": 448,
+      "crowd_ratio": 0.56,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 15,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "الفنون",
+        "التاريخ والتراث"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "الفنون",
+        "التاريخ والتراث"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.933863,
+      "longitude": 46.728316,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P14",
+      "name_ar": "جناح ألمانيا",
+      "name_en": "Germany Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.934312,
+        "lng": 46.729108
+      },
+      "capacity": 700,
+      "current_visitors": 329,
+      "crowd_ratio": 0.47,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 13,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "التقنية",
+        "الابتكار",
+        "الاستدامة"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "التقنية",
+        "الابتكار",
+        "الاستدامة"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.934312,
+      "longitude": 46.729108,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P15",
+      "name_ar": "جناح المملكة المتحدة",
+      "name_en": "United Kingdom Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.933863,
+        "lng": 46.729901
+      },
+      "capacity": 700,
+      "current_visitors": 442,
+      "crowd_ratio": 0.63,
+      "crowd_level": "high",
+      "crowd_level_ar": "مرتفع",
+      "wait_minutes": 16,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "التقنية",
+        "الثقافة",
+        "الابتكار"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "التقنية",
+        "الثقافة",
+        "الابتكار"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.933863,
+      "longitude": 46.729901,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P16",
+      "name_ar": "جناح الولايات المتحدة",
+      "name_en": "United States Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.934312,
+        "lng": 46.730693
+      },
+      "capacity": 1000,
+      "current_visitors": 603,
+      "crowd_ratio": 0.6,
+      "crowd_level": "high",
+      "crowd_level_ar": "مرتفع",
+      "wait_minutes": 31,
+      "experience_minutes": 25,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "التقنية",
+        "الابتكار",
+        "الفضاء"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "التقنية",
+        "الابتكار",
+        "الفضاء"
+      ],
+      "recommended_duration": 25,
+      "latitude": 24.934312,
+      "longitude": 46.730693,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P17",
+      "name_ar": "جناح الصين",
+      "name_en": "China Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.933863,
+        "lng": 46.731585
+      },
+      "capacity": 1100,
+      "current_visitors": 754,
+      "crowd_ratio": 0.69,
+      "crowd_level": "high",
+      "crowd_level_ar": "مرتفع",
+      "wait_minutes": 37,
+      "experience_minutes": 25,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "التقنية",
+        "الابتكار",
+        "الثقافة"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "التقنية",
+        "الابتكار",
+        "الثقافة"
+      ],
+      "recommended_duration": 25,
+      "latitude": 24.933863,
+      "longitude": 46.731585,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P18",
+      "name_ar": "جناح اليابان",
+      "name_en": "Japan Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.934312,
+        "lng": 46.732477
+      },
+      "capacity": 900,
+      "current_visitors": 202,
+      "crowd_ratio": 0.22,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 11,
+      "experience_minutes": 25,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "التقنية",
+        "الابتكار",
+        "الثقافة"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "التقنية",
+        "الابتكار",
+        "الثقافة"
+      ],
+      "recommended_duration": 25,
+      "latitude": 24.934312,
+      "longitude": 46.732477,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P19",
+      "name_ar": "جناح كوريا الجنوبية",
+      "name_en": "South Korea Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.933863,
+        "lng": 46.733269
+      },
+      "capacity": 800,
+      "current_visitors": 197,
+      "crowd_ratio": 0.25,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 5,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "التقنية",
+        "الابتكار",
+        "الثقافة"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "التقنية",
+        "الابتكار",
+        "الثقافة"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.933863,
+      "longitude": 46.733269,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P20",
+      "name_ar": "جناح الهند",
+      "name_en": "India Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.934312,
+        "lng": 46.734062
+      },
+      "capacity": 800,
+      "current_visitors": 453,
+      "crowd_ratio": 0.57,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 19,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "التقنية",
+        "الابتكار"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "التقنية",
+        "الابتكار"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.934312,
+      "longitude": 46.734062,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P21",
+      "name_ar": "جناح روسيا",
+      "name_en": "Russia Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.933863,
+        "lng": 46.734854
+      },
+      "capacity": 700,
+      "current_visitors": 373,
+      "crowd_ratio": 0.53,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 20,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "الفضاء",
+        "التقنية"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "الفضاء",
+        "التقنية"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.933863,
+      "longitude": 46.734854,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P22",
+      "name_ar": "جناح البرازيل",
+      "name_en": "Brazil Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.934312,
+        "lng": 46.735646
+      },
+      "capacity": 600,
+      "current_visitors": 238,
+      "crowd_ratio": 0.4,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 9,
+      "experience_minutes": 15,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "الاستدامة",
+        "البيئة"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "الاستدامة",
+        "البيئة"
+      ],
+      "recommended_duration": 15,
+      "latitude": 24.934312,
+      "longitude": 46.735646,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P23",
+      "name_ar": "جناح إندونيسيا",
+      "name_en": "Indonesia Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.933863,
+        "lng": 46.736439
+      },
+      "capacity": 600,
+      "current_visitors": 314,
+      "crowd_ratio": 0.52,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 12,
+      "experience_minutes": 15,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "الاستدامة",
+        "البيئة"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "الاستدامة",
+        "البيئة"
+      ],
+      "recommended_duration": 15,
+      "latitude": 24.933863,
+      "longitude": 46.736439,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P24",
+      "name_ar": "جناح باكستان",
+      "name_en": "Pakistan Pavilion",
+      "category": "دول",
+      "zone": "countries",
+      "location": {
+        "lat": 24.933953,
+        "lng": 46.724849
+      },
+      "capacity": 500,
+      "current_visitors": 140,
+      "crowd_ratio": 0.28,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 8,
+      "experience_minutes": 15,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "التاريخ والتراث"
+      ],
+      "description": "تجربة تعرف الزائر على ثقافة الدولة وابتكاراتها وأبرز ما تقدمه.",
+      "highlights": [
+        "الثقافة",
+        "التاريخ والتراث"
+      ],
+      "recommended_duration": 15,
+      "latitude": 24.933953,
+      "longitude": 46.724849,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P25",
+      "name_ar": "جناح العمل المناخي",
+      "name_en": "Climate Action Pavilion",
+      "category": "استدامة",
+      "zone": "sustainability",
+      "location": {
+        "lat": 24.929461,
+        "lng": 46.734161
+      },
+      "capacity": 800,
+      "current_visitors": 499,
+      "crowd_ratio": 0.62,
+      "crowd_level": "high",
+      "crowd_level_ar": "مرتفع",
+      "wait_minutes": 31,
+      "experience_minutes": 25,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الاستدامة",
+        "البيئة"
+      ],
+      "description": "تجربة تفاعلية حول الاستدامة والبيئة والحلول التي تدعم مستقبلًا أكثر استدامة.",
+      "highlights": [
+        "الاستدامة",
+        "البيئة"
+      ],
+      "recommended_duration": 25,
+      "latitude": 24.929461,
+      "longitude": 46.734161,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P26",
+      "name_ar": "جناح الطاقة المتجددة",
+      "name_en": "Renewable Energy Pavilion",
+      "category": "استدامة",
+      "zone": "sustainability",
+      "location": {
+        "lat": 24.928742,
+        "lng": 46.734953
+      },
+      "capacity": 600,
+      "current_visitors": 145,
+      "crowd_ratio": 0.24,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 9,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الاستدامة",
+        "الطاقة",
+        "البيئة",
+        "التقنية"
+      ],
+      "description": "تجربة تفاعلية حول الاستدامة والبيئة والحلول التي تدعم مستقبلًا أكثر استدامة.",
+      "highlights": [
+        "الاستدامة",
+        "الطاقة",
+        "البيئة",
+        "التقنية"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.928742,
+      "longitude": 46.734953,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P27",
+      "name_ar": "جناح المياه والبيئة",
+      "name_en": "Water & Environment Pavilion",
+      "category": "استدامة",
+      "zone": "sustainability",
+      "location": {
+        "lat": 24.928024,
+        "lng": 46.734161
+      },
+      "capacity": 600,
+      "current_visitors": 67,
+      "crowd_ratio": 0.11,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 3,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الاستدامة",
+        "البيئة"
+      ],
+      "description": "تجربة تفاعلية حول الاستدامة والبيئة والحلول التي تدعم مستقبلًا أكثر استدامة.",
+      "highlights": [
+        "الاستدامة",
+        "البيئة"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.928024,
+      "longitude": 46.734161,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P28",
+      "name_ar": "جناح الزراعة المستقبلية",
+      "name_en": "Future Agriculture Pavilion",
+      "category": "استدامة",
+      "zone": "sustainability",
+      "location": {
+        "lat": 24.927305,
+        "lng": 46.733368
+      },
+      "capacity": 500,
+      "current_visitors": 41,
+      "crowd_ratio": 0.08,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 2,
+      "experience_minutes": 15,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الاستدامة",
+        "البيئة",
+        "الابتكار",
+        "التقنية"
+      ],
+      "description": "تجربة تفاعلية حول الاستدامة والبيئة والحلول التي تدعم مستقبلًا أكثر استدامة.",
+      "highlights": [
+        "الاستدامة",
+        "البيئة",
+        "الابتكار",
+        "التقنية"
+      ],
+      "recommended_duration": 15,
+      "latitude": 24.927305,
+      "longitude": 46.733368,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P29",
+      "name_ar": "جناح التراث السعودي",
+      "name_en": "Saudi Heritage Pavilion",
+      "category": "ثقافة",
+      "zone": "culture",
+      "location": {
+        "lat": 24.928922,
+        "lng": 46.725839
+      },
+      "capacity": 900,
+      "current_visitors": 175,
+      "crowd_ratio": 0.19,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 6,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "التاريخ والتراث"
+      ],
+      "description": "تجربة ثقافية تعرف الزائر على الفنون والتراث والتاريخ بأسلوب تفاعلي.",
+      "highlights": [
+        "الثقافة",
+        "التاريخ والتراث"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.928922,
+      "longitude": 46.725839,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P30",
+      "name_ar": "جناح الفنون والإبداع",
+      "name_en": "Arts & Creativity Pavilion",
+      "category": "ثقافة",
+      "zone": "culture",
+      "location": {
+        "lat": 24.928203,
+        "lng": 46.725047
+      },
+      "capacity": 600,
+      "current_visitors": 297,
+      "crowd_ratio": 0.49,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 15,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "الفنون"
+      ],
+      "description": "تجربة ثقافية تعرف الزائر على الفنون والتراث والتاريخ بأسلوب تفاعلي.",
+      "highlights": [
+        "الثقافة",
+        "الفنون"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.928203,
+      "longitude": 46.725047,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P31",
+      "name_ar": "جناح المتاحف والتاريخ",
+      "name_en": "Museums & History Pavilion",
+      "category": "ثقافة",
+      "zone": "culture",
+      "location": {
+        "lat": 24.927395,
+        "lng": 46.725839
+      },
+      "capacity": 600,
+      "current_visitors": 253,
+      "crowd_ratio": 0.42,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 21,
+      "experience_minutes": 25,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "التاريخ والتراث",
+        "الفنون"
+      ],
+      "description": "تجربة ثقافية تعرف الزائر على الفنون والتراث والتاريخ بأسلوب تفاعلي.",
+      "highlights": [
+        "الثقافة",
+        "التاريخ والتراث",
+        "الفنون"
+      ],
+      "recommended_duration": 25,
+      "latitude": 24.927395,
+      "longitude": 46.725839,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P32",
+      "name_ar": "جناح العُلا",
+      "name_en": "AlUla Pavilion",
+      "category": "ثقافة",
+      "zone": "culture",
+      "location": {
+        "lat": 24.928114,
+        "lng": 46.726632
+      },
+      "capacity": 700,
+      "current_visitors": 427,
+      "crowd_ratio": 0.61,
+      "crowd_level": "high",
+      "crowd_level_ar": "مرتفع",
+      "wait_minutes": 18,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الثقافة",
+        "التاريخ والتراث",
+        "الفنون"
+      ],
+      "description": "تجربة ثقافية تعرف الزائر على الفنون والتراث والتاريخ بأسلوب تفاعلي.",
+      "highlights": [
+        "الثقافة",
+        "التاريخ والتراث",
+        "الفنون"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.928114,
+      "longitude": 46.726632,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P33",
+      "name_ar": "جناح الصحة والعافية",
+      "name_en": "Health & Wellbeing Pavilion",
+      "category": "صحة",
+      "zone": "health",
+      "location": {
+        "lat": 24.927125,
+        "lng": 46.73
+      },
+      "capacity": 700,
+      "current_visitors": 248,
+      "crowd_ratio": 0.35,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 15,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الصحة",
+        "الابتكار"
+      ],
+      "description": "تجربة تفاعلية تستعرض الصحة والعافية والابتكار في تحسين جودة الحياة.",
+      "highlights": [
+        "الصحة",
+        "الابتكار"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.927125,
+      "longitude": 46.73,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P34",
+      "name_ar": "جناح الابتكار والريادة",
+      "name_en": "Innovation Hub",
+      "category": "تقنية",
+      "zone": "health",
+      "location": {
+        "lat": 24.926586,
+        "lng": 46.730892
+      },
+      "capacity": 800,
+      "current_visitors": 159,
+      "crowd_ratio": 0.2,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 6,
+      "experience_minutes": 25,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الابتكار",
+        "التقنية",
+        "الذكاء الاصطناعي"
+      ],
+      "description": "تجربة تفاعلية تستعرض التقنيات الحديثة والابتكار والحلول المستقبلية.",
+      "highlights": [
+        "الابتكار",
+        "التقنية",
+        "الذكاء الاصطناعي"
+      ],
+      "recommended_duration": 25,
+      "latitude": 24.926586,
+      "longitude": 46.730892,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P35",
+      "name_ar": "ساحة الاحتفالات الكبرى",
+      "name_en": "Grand Celebration Plaza",
+      "category": "ترفيه",
+      "zone": "entertainment",
+      "location": {
+        "lat": 24.925329,
+        "lng": 46.73
+      },
+      "capacity": 5000,
+      "current_visitors": 1855,
+      "crowd_ratio": 0.37,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 28,
+      "experience_minutes": 45,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الترفيه",
+        "الثقافة"
+      ],
+      "description": "تجربة ترفيهية وتفاعلية مصممة لإضافة المتعة إلى رحلة الزائر.",
+      "highlights": [
+        "الترفيه",
+        "الثقافة"
+      ],
+      "recommended_duration": 45,
+      "latitude": 24.925329,
+      "longitude": 46.73,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P36",
+      "name_ar": "مسرح الواحة",
+      "name_en": "Oasis Theatre",
+      "category": "ترفيه",
+      "zone": "entertainment",
+      "location": {
+        "lat": 24.924969,
+        "lng": 46.728712
+      },
+      "capacity": 1200,
+      "current_visitors": 321,
+      "crowd_ratio": 0.27,
+      "crowd_level": "low",
+      "crowd_level_ar": "منخفض",
+      "wait_minutes": 24,
+      "experience_minutes": 60,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الترفيه",
+        "الفنون",
+        "الثقافة"
+      ],
+      "description": "تجربة ترفيهية وتفاعلية مصممة لإضافة المتعة إلى رحلة الزائر.",
+      "highlights": [
+        "الترفيه",
+        "الفنون",
+        "الثقافة"
+      ],
+      "recommended_duration": 60,
+      "latitude": 24.924969,
+      "longitude": 46.728712,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P37",
+      "name_ar": "منطقة الألعاب التفاعلية",
+      "name_en": "Interactive Games Zone",
+      "category": "ترفيه",
+      "zone": "entertainment",
+      "location": {
+        "lat": 24.924969,
+        "lng": 46.731288
+      },
+      "capacity": 700,
+      "current_visitors": 284,
+      "crowd_ratio": 0.41,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 17,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الألعاب",
+        "الترفيه",
+        "التقنية"
+      ],
+      "description": "تجربة ترفيهية وتفاعلية مصممة لإضافة المتعة إلى رحلة الزائر.",
+      "highlights": [
+        "الألعاب",
+        "الترفيه",
+        "التقنية"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.924969,
+      "longitude": 46.731288,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P38",
+      "name_ar": "ساحة المأكولات العالمية",
+      "name_en": "World Food Court",
+      "category": "مطاعم",
+      "zone": "entertainment",
+      "location": {
+        "lat": 24.924251,
+        "lng": 46.73
+      },
+      "capacity": 2500,
+      "current_visitors": 1818,
+      "crowd_ratio": 0.73,
+      "crowd_level": "high",
+      "crowd_level_ar": "مرتفع",
+      "wait_minutes": 51,
+      "experience_minutes": 40,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "الطعام",
+        "الثقافة"
+      ],
+      "description": "تجربة تجمع خيارات الطعام والنكهات المتنوعة ضمن رحلة الزائر.",
+      "highlights": [
+        "الطعام",
+        "الثقافة"
+      ],
+      "recommended_duration": 40,
+      "latitude": 24.924251,
+      "longitude": 46.73,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P39",
+      "name_ar": "سوق الحرف والهدايا",
+      "name_en": "Crafts & Souvenirs Market",
+      "category": "تسوق",
+      "zone": "entertainment",
+      "location": {
+        "lat": 24.924071,
+        "lng": 46.728613
+      },
+      "capacity": 800,
+      "current_visitors": 314,
+      "crowd_ratio": 0.39,
+      "crowd_level": "moderate",
+      "crowd_level_ar": "متوسط",
+      "wait_minutes": 16,
+      "experience_minutes": 20,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [
+        "التسوق",
+        "الثقافة",
+        "الفنون",
+        "التاريخ والتراث"
+      ],
+      "description": "تجربة للتسوق واكتشاف الحرف والهدايا والمنتجات المتنوعة.",
+      "highlights": [
+        "التسوق",
+        "الثقافة",
+        "الفنون",
+        "التاريخ والتراث"
+      ],
+      "recommended_duration": 20,
+      "latitude": 24.924071,
+      "longitude": 46.728613,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    },
+    {
+      "id": "P40",
+      "name_ar": "البوابة الرئيسية ومركز الزوار",
+      "name_en": "Main Gate & Visitor Center",
+      "category": "خدمات",
+      "zone": "services",
+      "location": {
+        "lat": 24.923173,
+        "lng": 46.73
+      },
+      "capacity": 3000,
+      "current_visitors": 2438,
+      "crowd_ratio": 0.81,
+      "crowd_level": "high",
+      "crowd_level_ar": "مرتفع",
+      "wait_minutes": 16,
+      "experience_minutes": 10,
+      "opening_hours": {
+        "open": "09:00",
+        "close": "01:00"
+      },
+      "interests": [],
+      "description": "منطقة خدمية لمساعدة الزوار وتسهيل تجربتهم داخل موقع إكسبو.",
+      "highlights": [],
+      "recommended_duration": 10,
+      "latitude": 24.923173,
+      "longitude": 46.73,
+      "challenge_visit_minutes": 10,
+      "is_active": true
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{% extends "planner/base.html" %}
+
+{% block title %}المسار السريع | mashi{% endblock %}
+
+{% block content %}
+
+<header class="topbar">
+    <a href="{% url 'plan_detail' free_pass.challenge.visit_plan_id %}" class="icon-btn" aria-label="رجوع إلى خطتي">
+        <svg class="ic"><use href="#i-arrow"/></svg>
+    </a>
+    <span class="topbar-title">المسار السريع</span>
+</header>
+
+<div class="status-hero">
+    <div class="status-icon {% if free_pass.is_used %}warn{% else %}purple{% endif %}">
+        <svg class="ic"><use href="#i-bolt"/></svg>
+    </div>
+    <h1>{% if free_pass.is_used %}تم استخدام المسار السريع{% else %}المسار السريع جاهز!{% endif %}</h1>
+    <p>{% if free_pass.is_used %}هذا التصريح استُخدم مسبقًا ولا يمكن استخدامه مرة أخرى.{% else %}أكملت التحدي بنجاح. استخدم التصريح للدخول بأولوية.{% endif %}</p>
+</div>
+
+
+<!-- تذكرة المسار السريع -->
+<article class="ticket">
+
+    <div class="ticket-top">
+        <div class="row">
+            <span>mashi · FAST TRACK</span>
+            <span class="badge">{% if free_pass.is_used %}تم الاستخدام{% else %}صالح{% endif %}</span>
+        </div>
+        <small>المسار السريع إلى</small>
+        <h2>{{ free_pass.pavilion.name }}</h2>
+    </div>
+
+    <div class="ticket-cut"></div>
+
+    <div class="ticket-body">
+        {% if not free_pass.is_used %}
+            <strong>اعرض رمز QR عند بوابة الجناح</strong>
+            <p>يقوم المنظم بمسح الرمز للتحقق من صلاحية المسار السريع.</p>
+            <img src="data:image/png;base64,{{ qr_code }}" alt="رمز QR للمسار السريع">
+        {% endif %}
+
+        <p style="font-size:11px;letter-spacing:.06em">PASS ID</p>
+        <p class="code">{{ free_pass.code }}</p>
+    </div>
+
+</article>
+
+
+{% if not free_pass.is_used %}
+<section class="card" style="margin-top:16px">
+    <strong>كيف تستخدمه؟</strong>
+    <div class="steps3">
+        <div><b>1</b><span>توجّه للجناح<small>عد إلى {{ free_pass.pavilion.name }}.</small></span></div>
+        <div><b>2</b><span>اعرض QR<small>اعرض المسار السريع عند نقطة الدخول.</small></span></div>
+        <div><b>3</b><span>ادخل بالأولوية<small>بعد التحقق تحصل على أولوية الدخول.</small></span></div>
+    </div>
+</section>
+{% endif %}
+
+<p class="mvp-note">
+    <svg class="ic" style="width:18px;height:18px"><use href="#i-info"/></svg>
+    رمز QR يعمل فعليًا: عند مسحه تفتح صفحة التحقق، وبعد تأكيد الاستخدام يصبح غير صالح.
+</p>
+
+{% endblock %}

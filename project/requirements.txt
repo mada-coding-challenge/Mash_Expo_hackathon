@@ -1,0 +1,10 @@
+Django>=6.1
+python-dotenv
+qrcode[pil]
+numpy
+joblib
+# يجب أن تطابق النسخة التي حُفظ بها interest_model.joblib
+scikit-learn==1.9.1
+# اختياري: فقط إذا أردت إعادة تفعيل ai_service.py (Gemini)
+# google-genai
+# pydantic

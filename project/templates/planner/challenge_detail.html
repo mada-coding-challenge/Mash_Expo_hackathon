@@ -1,0 +1,326 @@
+{% extends "planner/base.html" %}
+{% load planner_extras %}
+
+{% block title %}Discover & Earn | mashi{% endblock %}
+
+{% block content %}
+
+<header class="topbar">
+    <a href="{% url 'plan_detail' challenge.visit_plan_id %}" class="icon-btn" aria-label="رجوع إلى خطتي">
+        <svg class="ic"><use href="#i-arrow"/></svg>
+    </a>
+    <span class="topbar-title">Discover &amp; Earn</span>
+</header>
+
+<h1 class="page-title">استكشف واكسب</h1>
+<p class="page-sub">زر 3 أجنحة أقل ازدحامًا واحصل على أولوية الدخول للجناح المزدحم.</p>
+
+
+<div class="stack" style="margin-top:18px">
+
+    <!-- تنبيه الجناح المزدحم -->
+    <div class="note red">
+        <svg class="ic"><use href="#i-warn"/></svg>
+        <div>
+            <strong>{{ challenge.crowded_pavilion.name }}</strong> مزدحم حاليًا.
+            أكمل زيارة الأجنحة الثلاثة للحصول على المسار السريع.
+        </div>
+    </div>
+
+    <!-- تقدم التحدي -->
+    <div class="card">
+        <div class="challenge-progress">
+            <span class="num" dir="ltr">{{ completed_count }} / 3</span>
+            <div style="flex:1">
+                <strong>تقدمك في التحدي</strong>
+                <div class="progress-bar"><i style="width: {% widthratio completed_count 3 100 %}%"></i></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- الأجنحة الثلاثة -->
+    {% for visit in visits %}
+    <div class="card ch-card {% if visit.is_completed %}done{% endif %}">
+
+        <span class="ch-num">{% if visit.is_completed %}<svg class="ic" style="width:18px;height:18px"><use href="#i-check"/></svg>{% else %}{{ visit.order }}{% endif %}</span>
+
+        <h3 style="font-size:17px">{{ visit.pavilion.name }}</h3>
+
+        <div class="tl-tags" style="justify-content:flex-start">
+            <span class="crowd {{ visit.pavilion.crowd_level|crowd_class }}">{{ visit.pavilion.get_crowd_level_display }}</span>
+            <span class="sub">المدة المطلوبة: {{ visit.pavilion.challenge_visit_minutes }} د</span>
+        </div>
+
+
+        {% if visit.is_completed %}
+
+            <p class="sub" style="margin-top:10px;color:var(--green-dark);font-weight:700">✓ تمت زيارة الجناح</p>
+
+        {% elif visit.started_at %}
+
+            <p class="sub" style="margin-top:10px"><svg class="ic" style="width:16px;height:16px;vertical-align:-3px"><use href="#i-pin"/></svg> تم تسجيل وصولك — الزيارة قيد التحقق…</p>
+
+            <div id="timer-{{ visit.id }}" class="timer challenge-timer" data-visit-id="{{ visit.id }}" data-seconds="10">00:10</div>
+
+            <form id="check-form-{{ visit.id }}" method="POST" action="{% url 'check_challenge_visit' visit.id %}">
+                {% csrf_token %}
+                <button class="btn btn-sm" type="submit">تحقق من إكمال الزيارة</button>
+            </form>
+
+        {% else %}
+
+            <div class="ch-actions">
+
+                <!-- تحديد الموقع الحقيقي -->
+                <button type="button" class="btn btn-sm" onclick="checkLocation({{ visit.id }})">
+                    <svg class="ic"><use href="#i-pin"/></svg>تحقق من موقعي الحقيقي
+                </button>
+
+                <form id="location-form-{{ visit.id }}" method="POST" action="{% url 'check_challenge_location' visit.id %}" style="display:none">
+                    {% csrf_token %}
+                    <input type="hidden" name="latitude" id="latitude-{{ visit.id }}">
+                    <input type="hidden" name="longitude" id="longitude-{{ visit.id }}">
+                </form>
+
+                <!-- وضع الديمو -->
+                <form method="POST" action="{% url 'start_challenge_visit' visit.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-ghost">▶ محاكاة الوصول</button>
+                </form>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+    {% endfor %}
+
+
+    <!-- المكافأة -->
+    {% if free_pass %}
+
+    <div class="card status-hero" style="border-color:var(--purple);background:var(--purple-tint)">
+        <div class="status-icon purple"><svg class="ic"><use href="#i-bolt"/></svg></div>
+        <h1 style="font-size:22px">اكتمل التحدي!</h1>
+        <p>المسار السريع جاهز إلى</p>
+        <h2>{{ free_pass.pavilion.name }}</h2>
+        <a class="btn btn-purple" style="margin-top:16px" href="{% url 'free_pass_detail' free_pass.code %}">عرض المسار السريع</a>
+    </div>
+
+    {% else %}
+
+    <div class="note purple">
+        <svg class="ic"><use href="#i-bolt"/></svg>
+        <div>بعد إكمال الأجنحة الثلاثة تحصل على مسار سريع إلى <strong>{{ challenge.crowded_pavilion.name }}</strong>.</div>
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+
+
+// ==========================================
+// GPS
+// ==========================================
+
+function checkLocation(visitId) {
+
+
+    if (!navigator.geolocation) {
+
+        alert(
+            "المتصفح لا يدعم تحديد الموقع."
+        );
+
+        return;
+
+    }
+
+
+    navigator.geolocation.getCurrentPosition(
+
+
+        function(position) {
+
+
+            const latitude =
+                position.coords.latitude;
+
+
+            const longitude =
+                position.coords.longitude;
+
+
+
+            document.getElementById(
+                "latitude-" + visitId
+            ).value = latitude;
+
+
+
+            document.getElementById(
+                "longitude-" + visitId
+            ).value = longitude;
+
+
+
+            document.getElementById(
+                "location-form-" + visitId
+            ).submit();
+
+
+        },
+
+
+        function(error) {
+
+
+            console.log(
+                "Geolocation error:",
+                error.code,
+                error.message
+            );
+
+
+            if (error.code === 1) {
+
+                alert(
+                    "تم رفض إذن الموقع. اسمح للموقع باستخدام موقعك."
+                );
+
+            }
+
+            else if (error.code === 2) {
+
+                alert(
+                    "تعذر تحديد موقعك الحالي."
+                );
+
+            }
+
+            else if (error.code === 3) {
+
+                alert(
+                    "استغرق تحديد الموقع وقتاً طويلاً."
+                );
+
+            }
+
+            else {
+
+                alert(
+                    "حدث خطأ أثناء تحديد الموقع."
+                );
+
+            }
+
+        },
+
+
+        {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+        }
+
+    );
+
+}
+
+
+
+// ==========================================
+// Demo Countdown
+// ==========================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+
+        const timers =
+            document.querySelectorAll(
+                ".challenge-timer"
+            );
+
+
+        timers.forEach(
+            function(timer) {
+
+
+                let seconds =
+                    parseInt(
+                        timer.dataset.seconds
+                    );
+
+
+                const visitId =
+                    timer.dataset.visitId;
+
+
+
+                const interval =
+                    setInterval(
+
+                        function() {
+
+
+                            seconds--;
+
+
+                            if (seconds <= 0) {
+
+
+                                clearInterval(
+                                    interval
+                                );
+
+
+                                timer.textContent =
+                                    "✓ تمت المدة";
+
+
+                                document.getElementById(
+                                    "check-form-" + visitId
+                                ).submit();
+
+
+                                return;
+
+                            }
+
+
+                            timer.textContent =
+                                "00:" +
+                                String(seconds).padStart(
+                                    2,
+                                    "0"
+                                );
+
+
+                        },
+
+                        1000
+
+                    );
+
+
+            }
+        );
+
+
+    }
+);
+
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,240 @@
+{% extends "planner/base.html" %}
+{% load static planner_extras %}
+
+{% block title %}خطّط زيارتك | mashi{% endblock %}
+
+{% block body_class %}wizard{% endblock %}
+
+{# المعالج لا يعرض شريط التنقل السفلي #}
+{% block tabbar %}{% endblock %}
+
+{% block content %}
+
+<form method="POST" id="wizard" novalidate>
+
+    {% csrf_token %}
+
+    {# حقول الوقت المخفية: تملؤها واجهة اختيار الوقت عبر JavaScript #}
+    {{ form.visit_date }}
+    {{ form.start_time }}
+    {{ form.end_time }}
+
+
+    <!-- الشريط العلوي + مؤشر الخطوات -->
+    <header class="topbar">
+        <button type="button" class="icon-btn" id="backBtn" aria-label="رجوع" style="visibility:hidden">
+            <svg class="ic"><use href="#i-arrow"/></svg>
+        </button>
+        <span class="topbar-title">خطّط زيارتك</span>
+    </header>
+
+    <div class="stepbar" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+
+
+    {% if form.errors %}
+    <div class="note red form-errors">
+        <svg class="ic"><use href="#i-warn"/></svg>
+        <div>
+            {% for e in form.non_field_errors %}<p>{{ e }}</p>{% endfor %}
+            {% for field in form %}{% for e in field.errors %}<p>{{ e }}</p>{% endfor %}{% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+
+    <!-- =====================  الخطوة 1: الوقت  ===================== -->
+    <section class="wizard-step" data-step="0">
+
+        <h1 class="page-title">متى تخطط زيارة معرض إكسبو؟</h1>
+        <p class="page-sub">حدّد اليوم ووقت الوصول والمغادرة.</p>
+
+        <div class="field-label">اليوم</div>
+
+        <div class="chips" id="dayChips">
+            <button type="button" class="chip is-on" data-day="0" id="chipToday">اليوم</button>
+            <button type="button" class="chip" data-day="1">بكرة</button>
+            <label class="chip" id="chipCustom">
+                <span id="customLabel">اختر تاريخ</span>
+                <input type="date" id="dateInput" aria-label="اختر تاريخ">
+            </label>
+        </div>
+
+        <div class="time-card">
+
+            <div class="time-card-head">
+                <h2>وقت الزيارة</h2>
+                <span class="badge green"><svg class="ic"><use href="#i-clock"/></svg><span id="durationBadge">5 ساعات</span></span>
+            </div>
+
+            <div class="time-pair">
+                <button type="button" class="time-box is-active" id="boxStart">
+                    <small>من</small>
+                    <strong id="startText">4:00 <span>م</span></strong>
+                </button>
+
+                <svg class="ic time-arrow"><use href="#i-chev"/></svg>
+
+                <button type="button" class="time-box" id="boxEnd">
+                    <small>إلى</small>
+                    <strong id="endText">9:00 <span>م</span></strong>
+                </button>
+            </div>
+
+            <div class="range">
+                <div class="range-track"><div class="range-fill" id="rangeFill"></div></div>
+                <div class="range-labels"><span>10 ص</span><span>11 م</span></div>
+            </div>
+
+            <p class="hours-note">
+                <svg class="ic"><use href="#i-info"/></svg>
+                إكسبو مفتوح من 10:00 ص إلى 11:00 م
+            </p>
+        </div>
+
+        <p class="field-error" id="timeError" hidden></p>
+
+        <!-- نوع المجموعة: من مدخلات موديل الاهتمامات -->
+        <div class="field-label" style="margin-top:18px">{{ form.group_type.label }}</div>
+
+        <div class="chips" id="groupChips">
+            {% for radio in form.group_type %}
+            <label class="chip{% if radio.data.selected %} is-on{% endif %}" for="{{ radio.id_for_label }}">
+                <input type="radio" name="{{ radio.data.name }}" value="{{ radio.data.value }}" id="{{ radio.id_for_label }}"
+                       {% if radio.data.selected %}checked{% endif %} hidden>
+                {{ radio.choice_label }}
+            </label>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    <!-- =====================  الخطوة 2: الاهتمامات  ===================== -->
+    <section class="wizard-step" data-step="1" hidden>
+
+        <h1 class="page-title">حدّد اهتماماتك</h1>
+        <p class="page-sub">اختر التصنيفات التي تفضّلها لنقترح عليك أماكن تناسبك.</p>
+
+        <div class="interest-grid">
+            {% for cb in form.interests %}
+            <label class="choice" for="{{ cb.id_for_label }}" data-name="{{ cb.choice_label }}">
+                {{ cb.tag }}
+                <span class="interest-card">
+                    <span class="tick"><svg class="ic"><use href="#i-check"/></svg></span>
+                    <span class="interest-icon c-{{ cb.choice_label|interest_slug }}">
+                        <svg class="ic"><use href="#i-{{ cb.choice_label|interest_icon }}"/></svg>
+                    </span>
+                    {{ cb.choice_label }}
+                </span>
+            </label>
+            {% endfor %}
+        </div>
+
+        <p class="field-error" id="interestError" hidden>اختر اهتمامًا واحدًا على الأقل للمتابعة.</p>
+    </section>
+
+
+    <!-- =====================  الخطوة 3: الأجنحة  ===================== -->
+    <section class="wizard-step" data-step="2" hidden>
+
+        <h1 class="page-title">حدّد ما ترغب في زيارته</h1>
+        <p class="page-sub">اختر الأماكن التي تود زيارتها لتخصيص خطتك وفقًا لتفضيلاتك. (اختياري)</p>
+
+        <div class="search">
+            <svg class="ic"><use href="#i-search"/></svg>
+            <input type="search" id="pavSearch" placeholder="ابحث عن جناح…" autocomplete="off">
+            <button type="button" id="onlySelected" aria-label="عرض المحدد فقط" title="عرض المحدد فقط">
+                <svg class="ic"><use href="#i-sliders"/></svg>
+            </button>
+        </div>
+
+        <div class="ai-banner" id="aiBanner" hidden>
+            <svg class="ic"><use href="#i-sparkle"/></svg>
+            <span id="aiBannerText"></span>
+        </div>
+
+        <div class="pav-list" id="pavList">
+            {% for cb in form.favorite_pavilions %}
+            {% with p=cb.data.value.instance %}
+            <div class="pav-item" data-name="{{ p.name }}" data-interests="{{ p|interest_names }}">
+                <label class="choice" for="{{ cb.id_for_label }}">
+                    {{ cb.tag }}
+                    <span class="pav-row">
+                        <span class="pav-thumb {{ p.id|tile }}"><svg class="ic"><use href="#i-building"/></svg></span>
+                        <span class="pav-text">
+                            <span class="pav-name">
+                                {{ p.name }}
+                                <span class="badge purple"><svg class="ic"><use href="#i-sparkle"/></svg>مقترح</span>
+                            </span>
+                            <span class="pav-meta">{{ p|interests_line }}</span>
+                        </span>
+                        <span class="radio"><svg class="ic"><use href="#i-check"/></svg></span>
+                    </span>
+                </label>
+            </div>
+            {% endwith %}
+            {% endfor %}
+        </div>
+
+        <p class="empty-search" id="emptySearch" hidden>لا توجد نتائج مطابقة.</p>
+    </section>
+
+
+    <!-- الزر السفلي الثابت -->
+    <div class="wizard-foot">
+        <div class="foot-summary" id="footSummary" hidden>
+            <strong>مجموع اختياراتك <span id="pickCount">0</span></strong>
+            <span>تستطيع التعديل لاحقًا</span>
+        </div>
+        <button type="button" class="btn" id="nextBtn">متابعة</button>
+    </div>
+
+</form>
+
+
+<!-- ===================  Bottom sheet: اختيار الوقت  =================== -->
+<div class="sheet-backdrop" id="sheetBackdrop"></div>
+
+<div class="sheet" id="timeSheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="sheet-grip"></div>
+
+    <div class="sheet-head">
+        <button type="button" class="icon-btn" id="sheetClose" aria-label="إغلاق" style="width:36px;height:36px">
+            <svg class="ic" style="width:18px;height:18px"><use href="#i-x"/></svg>
+        </button>
+        <h2 id="sheetTitle">وقت الوصول</h2>
+    </div>
+
+    <div class="segmented">
+        <button type="button" id="tabStart" class="is-on">من · 4:00 م</button>
+        <button type="button" id="tabEnd">إلى · 9:00 م</button>
+    </div>
+
+    <div class="wheels">
+        <div class="wheel" id="wheelHour"   aria-label="الساعة"></div>
+        <div class="wheel" id="wheelMinute" aria-label="الدقائق"></div>
+        <div class="wheel" id="wheelPeriod" aria-label="ص / م"></div>
+    </div>
+
+    <div class="sheet-foot">
+        <span>مدة الزيارة</span>
+        <span class="badge green"><svg class="ic"><use href="#i-clock"/></svg><span id="sheetDuration"></span></span>
+    </div>
+
+    <button type="button" class="btn" id="sheetDone">تم</button>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{% static 'planner/js/create_plan.js' %}"></script>
+<script>
+    document.querySelectorAll("#groupChips input").forEach((input) => {
+        input.addEventListener("change", () => {
+            document.querySelectorAll("#groupChips .chip").forEach((chip) =>
+                chip.classList.toggle("is-on", chip.contains(input) && input.checked)
+            );
+        });
+    });
+</script>
+{% endblock %}

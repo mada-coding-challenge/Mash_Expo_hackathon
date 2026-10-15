@@ -1,0 +1,74 @@
+{% extends "planner/base.html" %}
+
+{% block title %}التحقق من المسار السريع | mashi{% endblock %}
+
+{# صفحة موظف البوابة: لا حاجة لشريط التنقل #}
+{% block tabbar %}{% endblock %}
+
+{% block content %}
+
+<header class="topbar"><span class="topbar-title">بوابة التحقق</span></header>
+
+<div class="note">
+    <svg class="ic"><use href="#i-info"/></svg>
+    <div>هذه الصفحة مخصصة للتحقق من صلاحية المسار السريع عند نقطة الدخول.</div>
+</div>
+
+<section class="card status-hero" style="margin-top:16px;padding:24px 18px">
+
+{% if is_valid %}
+
+    <div class="status-icon"><svg class="ic"><use href="#i-check"/></svg></div>
+    <span class="badge green">صالح للدخول</span>
+    <h1 style="margin-top:8px">المسار السريع صالح</h1>
+    <p>يمكن منح الزائر أولوية الدخول إلى</p>
+    <h2>{{ free_pass.pavilion.name }}</h2>
+
+    <div class="checks">
+        <div><svg class="ic"><use href="#i-check"/></svg>تم إكمال Discover &amp; Earn</div>
+        <div><svg class="ic"><use href="#i-check"/></svg>التصريح مرتبط بهذا الجناح</div>
+        <div><svg class="ic"><use href="#i-check"/></svg>لم يُستخدم التصريح من قبل</div>
+    </div>
+
+    <p class="code">{{ free_pass.code }}</p>
+
+    <form method="POST" action="{% url 'use_free_pass' free_pass.code %}" style="margin-top:16px">
+        {% csrf_token %}
+        <button type="submit" class="btn">تأكيد الدخول واستخدام المسار السريع</button>
+    </form>
+
+    <p class="sub" style="margin-top:10px;font-size:12.5px">بعد التأكيد لن يمكن استخدام هذا التصريح مرة أخرى.</p>
+
+{% elif free_pass.is_used %}
+
+    <div class="status-icon warn">!</div>
+    <span class="badge">غير صالح</span>
+    <h1 style="margin-top:8px">تم استخدام هذا التصريح</h1>
+    <p>لا يمكن استخدام المسار السريع أكثر من مرة.</p>
+
+    <div style="margin-top:14px;text-align:start">
+        <div class="kv"><span>الجناح</span><strong>{{ free_pass.pavilion.name }}</strong></div>
+        {% if free_pass.used_at %}
+        <div class="kv"><span>وقت الاستخدام</span><strong>{{ free_pass.used_at }}</strong></div>
+        {% endif %}
+    </div>
+
+    <p class="code" style="margin-top:10px">{{ free_pass.code }}</p>
+
+{% else %}
+
+    <div class="status-icon bad">×</div>
+    <span class="badge">غير صالح</span>
+    <h1 style="margin-top:8px">لا يمكن استخدام هذا التصريح</h1>
+    <p>لم يتم التحقق من شروط المسار السريع لهذا التصريح.</p>
+
+{% endif %}
+
+</section>
+
+<p class="mvp-note">
+    <svg class="ic" style="width:18px;height:18px"><use href="#i-info"/></svg>
+    في النظام التشغيلي تكون هذه الواجهة جزءًا من نظام موظفي الدخول، وتُعرض هنا لإثبات دورة التحقق.
+</p>
+
+{% endblock %}

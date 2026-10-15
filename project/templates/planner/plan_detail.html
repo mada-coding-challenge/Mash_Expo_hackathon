@@ -1,0 +1,199 @@
+{% extends "planner/base.html" %}
+{% load static planner_extras %}
+
+{% block title %}خطتي | mashi{% endblock %}
+
+{% block content %}
+
+<!-- ============ العنوان + الأزرار ============ -->
+<header class="plan-head">
+    <h1>خطتي</h1>
+
+    <div class="actions">
+        <a href="{% url 'create_plan' %}" class="icon-btn ai" aria-label="خطة جديدة بالذكاء الاصطناعي" title="خطة جديدة">
+            <svg class="ic"><use href="#i-sparkle"/></svg>
+        </a>
+        <a href="{% url 'create_plan' %}" class="icon-btn" aria-label="تعديل الخطة" title="تعديل">
+            <svg class="ic"><use href="#i-pencil"/></svg>
+        </a>
+    </div>
+</header>
+
+{% if plan.visit_date %}
+<div class="chips">
+    <span class="chip is-on" id="dateChip" data-date="{{ plan.visit_date|date:'Y-m-d' }}">{{ plan.visit_date|date:'j/n' }}</span>
+</div>
+{% endif %}
+
+
+<!-- ============ وقت الزيارة ============ -->
+{% if time_range %}
+<div class="time-summary">
+    <a href="{% url 'create_plan' %}">تعديل</a>
+    <div class="info">
+        <div>
+            <small>وقت زيارتك</small>
+            <strong>{{ time_range }}{% if duration_text %} · {{ duration_text }}{% endif %}</strong>
+        </div>
+        <svg class="ic"><use href="#i-clock"/></svg>
+    </div>
+</div>
+{% endif %}
+
+
+<!-- ============ التقدم ============ -->
+<div class="progress">
+    <div class="progress-row">
+        <span>أنجزت {{ done_count }} من {{ total_count }}</span>
+        <small id="nowClock"></small>
+    </div>
+    <div class="progress-bar"><i style="width: {{ progress_percent }}%"></i></div>
+</div>
+
+
+<!-- ============ الخطة مكتملة ============ -->
+{% if plan.is_completed %}
+<section class="card plan-done">
+    <div class="big"><svg class="ic"><use href="#i-check"/></svg></div>
+    <h2>أنهيت خطتك 🎉</h2>
+    <p>أكملت جميع الأجنحة الموجودة في خطة زيارتك.</p>
+    <a href="{% url 'create_plan' %}" class="btn">خطّط زيارة جديدة</a>
+</section>
+{% endif %}
+
+
+<!-- ============ ازدحام مرتفع → Discover & Earn ============ -->
+{% if show_challenge %}
+<section class="discover">
+
+    <div class="discover-top">
+        <span class="ic-wrap"><svg class="ic"><use href="#i-warn"/></svg></span>
+        <div>
+            <small>ازدحام مرتفع</small>
+            <h2>لا تنتظر. اكتشف أكثر.</h2>
+        </div>
+    </div>
+
+    <p class="desc">
+        وجهتك التالية <strong>{{ next_item.pavilion.name }}</strong> مزدحمة حاليًا.
+        بدل الانتظار، ابدأ تحدي <strong>Discover &amp; Earn</strong> واستكشف أجنحة أقل ازدحامًا.
+    </p>
+
+    <div class="flow">
+        <div><b>1 · ابدأ</b>3 أجنحة أقل ازدحامًا</div>
+        <div><b>2 · استكشف</b>أكمل مدة الزيارة</div>
+        <div><b>3 · اكسب</b>المسار السريع</div>
+    </div>
+
+    <form method="POST" action="{% url 'start_challenge' plan.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-purple">
+            ابدأ Discover &amp; Earn
+            <svg class="ic" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg>
+        </button>
+    </form>
+
+</section>
+{% endif %}
+
+
+<!-- ============ الخط الزمني ============ -->
+<section class="timeline" aria-label="مسار اليوم">
+
+    {% for row in rows %}
+    {% with item=row.item pav=row.item.pavilion %}
+
+        {# خط "الآن" قبل أول محطة لم تُزر #}
+        {% if next_item and item.id == next_item.id %}
+        <div class="now-line"><span>الآن</span></div>
+        <div class="now-spacer"></div>
+        {% endif %}
+
+        <div class="tl-row {% if item.is_visited %}done{% elif next_item and item.id == next_item.id %}current{% endif %}{% if row.free_pass %} fast{% endif %}">
+
+            <div class="tl-time">
+                <strong>{{ row.clock }}</strong>
+                <small>{{ row.period }}</small>
+                <span class="tl-dot"></span>
+            </div>
+
+            <article class="tl-card">
+
+                <div class="tl-title">
+                    <h3>{{ pav.name }}</h3>
+
+                    {% if row.free_pass %}
+                        <span class="badge purple"><svg class="ic"><use href="#i-bolt"/></svg>فاست باس</span>
+                    {% elif next_item and item.id == next_item.id %}
+                        <span class="badge">وجهتك الآن</span>
+                    {% endif %}
+                </div>
+
+                {% if item.is_visited %}
+
+                    <p class="sub">تمت الزيارة ✓</p>
+
+                {% else %}
+
+                    {% if row.free_pass %}
+                        <p class="sub">دخول بالأولوية · انتظار ~5 د</p>
+                    {% endif %}
+
+                    <div class="tl-tags">
+                        <span class="sub">{{ pav.recommended_duration }} د{% if row.walk %} · مشي {{ row.walk }} د{% endif %}</span>
+                        <span class="crowd {{ pav.crowd_level|crowd_class }}">{{ pav.get_crowd_level_display }}</span>
+                    </div>
+
+                    {% if row.free_pass %}
+                    <a href="{% url 'free_pass_detail' row.free_pass.code %}" class="btn btn-purple btn-sm tl-complete">
+                        <svg class="ic"><use href="#i-qr"/></svg>عرض المسار السريع
+                    </a>
+                    {% endif %}
+
+                    {% if next_item and item.id == next_item.id %}
+                        {% if not show_challenge %}
+                        <form method="POST" action="{% url 'complete_plan_item' item.id %}" class="tl-complete">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-sm {% if row.free_pass %}btn-ghost{% endif %}">انتهيت من هذه الزيارة</button>
+                        </form>
+                        {% endif %}
+                    {% endif %}
+
+                {% endif %}
+
+            </article>
+        </div>
+
+    {% endwith %}
+    {% empty %}
+
+        <div class="card plan-done">
+            <h2>لا توجد محطات في خطتك</h2>
+            <p>أنشئ خطة جديدة لاختيار الأجنحة المناسبة لك.</p>
+            <a href="{% url 'create_plan' %}" class="btn">خطّط زيارتي</a>
+        </div>
+
+    {% endfor %}
+
+</section>
+
+
+<p class="mvp-note">
+    <svg class="ic" style="width:18px;height:18px"><use href="#i-info"/></svg>
+    نسخة MVP: مستويات الازدحام وبيانات المواقع محاكاة لاختبار التجربة.
+</p>
+
+
+{% if active_pass %}
+<div class="toast" id="toast" data-key="{{ active_pass.code }}">
+    <svg class="ic"><use href="#i-bolt"/></svg>
+    أضفنا المسار السريع في خطتك.
+</div>
+{% endif %}
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{% static 'planner/js/plan.js' %}"></script>
+{% endblock %}

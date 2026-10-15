@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>
+        خطة زيارتك
+    </title>
+</head>
+
+<body>
+
+    <h1>
+        خطة زيارتك المقترحة
+    </h1>
+
+
+    <h2>
+        ملخص الخطة
+    </h2>
+
+    <p>
+        الوقت المتاح:
+        {{ plan.available_time }}
+        دقيقة
+    </p>
+
+    <p>
+        وقت زيارة الأجنحة:
+        {{ plan.visit_time }}
+        دقيقة
+    </p>
+
+    <p>
+        وقت المشي:
+        {{ plan.walking_time }}
+        دقيقة
+    </p>
+
+    <p>
+        إجمالي وقت الرحلة:
+        {{ plan.total_time }}
+        دقيقة
+    </p>
+
+    <p>
+        الوقت المتبقي:
+        {{ plan.remaining_time }}
+        دقيقة
+    </p>
+
+
+    <hr>
+
+
+    <h2>
+        مسار الزيارة
+    </h2>
+
+
+{% for item in plan.items %}
+
+    <div>
+
+        <h2>
+            {{ forloop.counter }}.
+            {{ item.pavilion.name }}
+        </h2>
+
+        <p>
+            {{ item.pavilion.country }}
+        </p>
+
+        <p>
+            <strong>
+                لماذا نقترح هذا الجناح؟
+            </strong>
+
+            {{ item.reason }}
+        </p>
+
+        <p>
+            مدة الزيارة:
+            {{ item.visit_duration }}
+            دقيقة
+        </p>
+
+        {% if item.walking_time > 0 %}
+
+            <p>
+                🚶 المسافة:
+                {{ item.distance }}
+                متر
+            </p>
+
+            <p>
+                🚶 وقت المشي:
+                {{ item.walking_time }}
+                دقيقة
+            </p>
+
+        {% endif %}
+
+    </div>
+
+    <hr>
+
+{% endfor %}
+
+    <a href="{% url 'create_plan' %}">
+        إنشاء خطة أخرى
+    </a>
+
+
+</body>
+
+</html>
