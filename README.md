@@ -51,6 +51,18 @@
 
 ---
 
+---
+
+# 🌐 Live Demo
+
+يمكن تجربة النسخة المنشورة من المشروع مباشرة عبر Railway:
+
+### 🚀 [Try mashi Live Demo](https://mashexpohackathon-production.up.railway.app/)
+
+> بيانات الأجنحة ومستويات الازدحام المستخدمة في النسخة التجريبية هي بيانات محاكاة وليست بيانات رسمية أو Live من Expo 2030.
+
+---
+
 ## 2. Interest Recommendation Model
 
 يحتوي المشروع على موديل محفوظ في:
@@ -770,3 +782,4 @@ QR Verification
 ```
 
 **mashi — وقت أقل في الانتظار، ووقت أكثر في الاستكشاف.**
+
