@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-ce6pfhpwaz7-p@7g%)u5fzman4fyjwyfks*moh9=&31r)!-!e9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["mashexpohackathon-production.up.railway.app"]
 GEMINI_API_KEY = os.getenv(
     "GEMINI_API_KEY"
 )
