@@ -156,3 +156,8 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://mashexpohackathon-production.up.railway.app",
+]
+DEMO_BASE_URL = "https://mashexpohackathon-production.up.railway.app"
