@@ -60,6 +60,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -161,3 +162,6 @@ CSRF_TRUSTED_ORIGINS = [
     "https://mashexpohackathon-production.up.railway.app",
 ]
 DEMO_BASE_URL = "https://mashexpohackathon-production.up.railway.app"
+
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
